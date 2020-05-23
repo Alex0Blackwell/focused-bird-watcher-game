@@ -16,22 +16,43 @@ class Bird {
   /* gets the index based on a rarity sytem. The index is then used to get the
    * bird name and the bird image name */
   setBird() {
-    var rarityRaw;
-    var choose = Math.floor(Math.random()*10);
+    var rarityRaw, range;
+    var birdsBought = Number(localStorage.birdsBought);
+    var multiplyFactor = 4;
+
+    if(birdsBought/3 > 3)
+      multiplyFactor = 10
+    else if(birdsBought/3 > 2)
+      multiplyFactor += birdsBought-4  // 7-9
+    else if(birdsBought/3 > 1)
+      multiplyFactor += birdsBought-3  // 5-6
+
+
+    var choose = Math.floor(Math.random()*multiplyFactor);
+    console.log(`choose ${choose}, multiplyFactor ${multiplyFactor}`);
     this.index = Math.floor(Math.random()*3);
     if(choose < 4) {
       rarityRaw = this.rarityWords[0];
       this.rarity = rarityRaw.fontcolor("#80ff86");
-    } else if(choose < 7) {
-      this.index += 3;
+    } else if(choose < 6) {
+      // "Dark Blue Bird", "Gray Bird", "Green Bird"
+      range = 3;
+      if(birdsBought < 6)
+        range = birdsBought - 3;
+      this.index = 3 + Math.floor(Math.random()*range);
       rarityRaw = this.rarityWords[1];
       this.rarity = rarityRaw.fontcolor("#8fc7ff");
-    } else if(choose < 8) {
-      this.index += 6;
+    } else if(choose < 9) {
+      // "Orange Bird", "Tan Bird", "Red Bird"
+      range = 3;
+      if(birdsBought < 9)
+        range = birdsBought - 6;
+      this.index = 6 + Math.floor(Math.random()*range);
       rarityRaw = this.rarityWords[2];
       this.rarity = rarityRaw.fontcolor("#cea1ff");
     } else {
-      this.index += 9;
+      range = birdsBought - 9;
+      this.index = 9 + Math.floor(Math.random()*range);
       rarityRaw = this.rarityWords[3];
       this.rarity = rarityRaw.fontcolor("#fff454");
     }
@@ -50,7 +71,7 @@ class Bird {
   /* get how long the bird will be on the screen for */
   setTime() {
     // for index 0, time of 12 s, for index 12, time of 2.7 s
-    this.time = Math.floor((10 / (this.index + 1) + 2.5) * 1000);
+    this.time = Math.floor((10 / (this.index + 1) + 1.5) * 1000);
   }
 
   /* gets the blur of the bird at this time */
@@ -145,6 +166,7 @@ function birdGen() {
 
 if(!localStorage.money) {
   localStorage.money = 0;
+  localStorage.birdsBought = 3;
 }
 
 birdGen()
