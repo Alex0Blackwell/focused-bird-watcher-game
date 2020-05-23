@@ -11,18 +11,29 @@ class Bird {
                 "A seemingly extinct ", "A crazy ", "A shy ", "The legendary ",
                 "The mythical "];
 
+  rarityWords = ["(Common)", "(Rare)", "(Epic)", "(Legendary)"];
+
   /* gets the index based on a rarity sytem. The index is then used to get the
    * bird name and the bird image name */
   setBird() {
+    var rarityRaw;
     var choose = Math.floor(Math.random()*10);
     this.index = Math.floor(Math.random()*3);
     if(choose < 4) {
+      rarityRaw = this.rarityWords[0];
+      this.rarity = rarityRaw.fontcolor("#80ff86");
     } else if(choose < 7) {
       this.index += 3;
+      rarityRaw = this.rarityWords[1];
+      this.rarity = rarityRaw.fontcolor("#8fc7ff");
     } else if(choose < 8) {
       this.index += 6;
+      rarityRaw = this.rarityWords[2];
+      this.rarity = rarityRaw.fontcolor("#cea1ff");
     } else {
       this.index += 9;
+      rarityRaw = this.rarityWords[3];
+      this.rarity = rarityRaw.fontcolor("#fff454");
     }
     this.name = this.birds[this.index];
     this.file = this.imgName[this.index];
@@ -33,6 +44,7 @@ class Bird {
     var i = Math.floor(Math.random()*this.titleWords.length);
     this.title = this.titleWords[i] + this.name + " has appeared!";
     document.getElementById("birdInfo").innerHTML = this.title;
+    document.getElementById("rareId").innerHTML = this.rarity;
   }
 
   /* get how long the bird will be on the screen for */
@@ -77,12 +89,13 @@ function capture() {
   document.getElementById("cornerSquare").style.display = "none";
   document.getElementById("photoContainer").style.display = "block";
   document.getElementById("birdInfo").innerHTML = "A peaceful day"
+  document.getElementById("rareId").innerHTML = " "
   document.getElementById("captureBtn").disabled = true;
 
   localStorage.money = Number(localStorage.money) + bird.price;
   document.getElementById("money").innerHTML = "$"+localStorage.money;
   document.getElementById("birdPic").src = `css/imgs/${bird.file}`;
-  document.getElementById("photoBirdName").innerHTML = "You took a picture of the "+bird.name+'!';
+  document.getElementById("photoBirdName").innerHTML = "You took a picture of the "+bird.name+'! '+bird.rarity;
   document.getElementById("photoPrice").innerHTML = "Based on how blurry the picture was, this earned you "+bird.price+" dollars!";
   // choppy chop that blur number. There's no good way to do this
   var res = "ok.";
@@ -124,9 +137,9 @@ function birdGen() {
       document.getElementById("gameLoss").style.display = "none";
       document.getElementById("viewfinderWrap").style.display = "block";
       document.getElementById("cornerSquare").style.display = "block";
+      birdGen();
+      onStart();
     }, 1500);
-    birdGen();
-    onStart();
   }, bird.time);
 }
 

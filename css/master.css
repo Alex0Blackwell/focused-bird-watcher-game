@@ -90,6 +90,28 @@ h1, h2, h3, h4,p {
   overflow-x: visible;
 }
 
+.button {
+  background-color: #e3e3e3;
+  border: none;
+  color: #262626;
+  border: 2px solid #262626;
+  border-radius: 5px;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: #262626;
+  color: #e3e3e3;
+  border: 2px solid #e3e3e3;
+}
+
 #bird {
   width: 150px;
   position: absolute;

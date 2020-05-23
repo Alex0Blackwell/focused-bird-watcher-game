@@ -47,13 +47,28 @@ document.addEventListener('keydown', function(event) {
   }
   // up or 'w'
   if(event.keyCode == 38 || event.keyCode == 87) {
-    capture();
+    var el = document.getElementById("viewfinderWrap");
+    if(el.style.display == "none") {
+      el = document.getElementById("photoContainer");
+      if(el.style.display == "block")
+        off();
+    } else {
+      capture();
+    }
   }
 });
 
 
 function onStart() {
-  document.getElementById("viewfinder").style.filter = "blur(5px)"
+  var blurAmount = 6;
+  if(screen.width < 800) {
+    // about the size of phones -> tablets
+    // because they don't get arrow keys it needs to be easier
+    blurAmount = 2.5;
+  }
+  // add some randomness
+  blurAmount -= (Math.random()*2).toFixed(2);
+  document.getElementById("viewfinder").style.filter = `blur(${blurAmount}px)`
   tooIn = (Math.random() > 0.5);
 }
 
