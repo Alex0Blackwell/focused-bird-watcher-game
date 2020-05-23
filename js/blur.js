@@ -2,6 +2,7 @@ var tooIn = (Math.random() > 0.5);
 
 function focusFn(focusIn) {
   var el = document.getElementById("viewfinder");
+  // choppy chop that blur number. There's no good way to do this
   var currAmount = parseFloat(el.style.filter.split('(')[1].split('px')[0]);
 
   if(focusIn && tooIn) {

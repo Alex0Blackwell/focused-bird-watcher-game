@@ -64,20 +64,23 @@ h1, h4,p {
 }
 
 #bird {
-  height: 40px;
+  width: 150px;
   position: absolute;
   top: 50%;
-  left: 70%;
+  left: 40%;
+}
+
+@media only screen and (max-width: 800px) {
+  #bird {
+    left: 30%;
+  }
 }
 
 @media only screen and (max-width: 600px) {
   #bird {
-    left: 65%;
+    left: 20%;
   }
-}
-
-@media only screen and (max-width: 340px) {
-  #bird {
-    left: 55%;
+  h1 {
+    font-size: 35px;
   }
 }
