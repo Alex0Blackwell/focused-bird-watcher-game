@@ -24,14 +24,14 @@ class Bird {
     } else {
       this.index += 9;
     }
-    this.bird = this.birds[this.index];
+    this.name = this.birds[this.index];
     this.file = this.imgName[this.index];
   }
 
   /* choses a random title from the titlewords array and sets it */
   setTitle() {
     var i = Math.floor(Math.random()*this.titleWords.length);
-    this.title = this.titleWords[i] + this.birds[this.index] + " has appeared!";
+    this.title = this.titleWords[i] + this.name + " has appeared!";
     document.getElementById("birdInfo").innerHTML = this.title;
   }
 
@@ -39,6 +39,12 @@ class Bird {
   setTime() {
     // for index 0, time of 12 s, for index 12, time of 2.7 s
     this.time = Math.floor((10 / (this.index + 1) + 2) * 1000);
+  }
+
+  /* gets the blur of the bird at this time */
+  setBlur() {
+    var el = document.getElementById("viewfinder");
+    this.blur = parseFloat(el.style.filter.split('(')[1].split('px')[0]);
   }
 
   /* gets how much this bird will be worth, based on rarity of the bird and
@@ -56,24 +62,49 @@ class Bird {
 
     this.price = rawPrice;
   }
-
 }
 
+var timeout;
+var bird;
 
-// document.getElementById("myImg").style.filter = "blur(5px)";
+function capture() {
+  clearTimeout(timeout);
+  bird.setBlur();
+  bird.setPrice();
+  document.getElementById("viewfinderWrap").style.display = "none";
+  document.getElementById("cornerSquare").style.display = "none";
+  document.getElementById("photoContainer").style.display = "block";
+
+  document.getElementById("birdPic").src = `css/imgs/${bird.file}`;
+  document.getElementById("photoBirdName").innerHTML = "You took a picture of the "+bird.name+'!';
+  document.getElementById("photoPrice").innerHTML = "Based on how blurry the picture was, this earned you "+bird.price+" dollars!";
+  // choppy chop that blur number. There's no good way to do this
+  var res = "ok.";
+  if(bird.blur == 0)
+    res = "Perfect!";
+  else if(bird.blur < 1)
+    res = "Great!";
+  document.getElementById("photoBlur").innerHTML = "The picture quality was "+res;
+}
+
+function off() {
+  document.getElementById("photoContainer").style.display = "none";
+  document.getElementById("viewfinderWrap").style.display = "block";
+  document.getElementById("cornerSquare").style.display = "block";
+  birdGen();
+  onStart();
+}
 
 function birdGen() {
-  var bird = new Bird();
+  bird = new Bird();
   bird.setBird();
   bird.setTitle();
   bird.setTime();
   console.log(bird.time);
   document.getElementById("bird").src = `css/imgs/${bird.file}`;
-  setTimeout(function() {
-    alert("Hello");
+  timeout = setTimeout(function() {
     bird.setPrice();
   }, bird.time);
-
 }
 
 birdGen()

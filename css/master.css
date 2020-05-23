@@ -3,8 +3,20 @@ body {
   background-color: #1f1f1f;
 }
 
-h1, h4,p {
+h1, h2, h3, h4,p {
   color: white;
+}
+
+#photoContainer {
+  background-color: #2e2e2e;
+  display: none;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
 }
 
 .viewfinder {
@@ -83,4 +95,8 @@ h1, h4,p {
   h1 {
     font-size: 35px;
   }
+}
+
+#birdPic {
+  width: 150px;
 }

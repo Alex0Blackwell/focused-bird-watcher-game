@@ -15,22 +15,29 @@
       <div class="col-lg-12 text-center">
         <h4 id="birdInfo">A peaceful day</h4>
       </div>
-      <div class="absolutePos">
+      <div class="absolutePos" id="viewfinderWrap">
         <div class="container viewfinder" id="viewfinder">
-          <!-- <div class="cornerSquare"> -->
           <table class="insideDims">
             <img id="bird">
           </table>
-          <!-- </div> -->
         </div>
 
       </div>
-        <div class="cornerSquare">
+      <div class="cornerSquare" id="cornerSquare"></div>
+      <div class="container text-center align-items-center" id="photoContainer">
+        <div class="row">
+          <h2 id="photoBirdName" class="col-lg-12">fill</h2>
+          <img id="birdPic" class="col-lg-2 mx-auto">
+          <h3 id="photoPrice" class="col-lg-12">fill</h3>
+          <h4 id="photoBlur" class="col-lg-12">fill</h4>
+          <button class="mx-auto" type="button" name="button" onclick="off()">Nice!</button>
         </div>
+
+      </div>
 
       <div class="col-lg-12 text-center">
         <button type="button" name="button" onmousedown="focusFn(true)"><</button>
-        <button type="button" name="button">Capture</button>
+        <button type="button" name="button" onclick="capture()">Capture</button>
         <button type="button" name="button" onmousedown="focusFn(false)">></button>
       </div>
     </div>
