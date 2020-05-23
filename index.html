@@ -2,15 +2,19 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0 user-scalable=0;">
     <title>Alex Blackwell</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link rel="stylesheet" href="css/master.css">
+    <link rel="stylesheet" href="vendor/fontawesome/css/all.css">
   </head>
   <body>
     <div class="d-flex row align-items-center min-vh-100 outside">
       <div class="col-lg-12 text-center">
         <h1>Focused Bird Watcher</h1>
+      </div>
+      <div class="col-lg-12 text-center">
+        <h2 id="money"></h2>
       </div>
       <div class="col-lg-12 text-center">
         <h4 id="birdInfo">A peaceful day</h4>
@@ -24,21 +28,28 @@
 
       </div>
       <div class="cornerSquare" id="cornerSquare"></div>
+
       <div class="container text-center align-items-center" id="photoContainer">
         <div class="row">
           <h2 id="photoBirdName" class="col-lg-12">fill</h2>
           <img id="birdPic" class="col-lg-2 mx-auto">
           <h3 id="photoPrice" class="col-lg-12">fill</h3>
           <h4 id="photoBlur" class="col-lg-12">fill</h4>
-          <button class="mx-auto" type="button" name="button" onclick="off()">Nice!</button>
+          <button class="mx-auto" type="button" name="button" onclick="off()">Ok!</button>
         </div>
+      </div>
 
+      <div class="container text-center align-items-center" id="gameLoss">
+        <div class="row">
+          <h2 id="lossLargeText" class="col-lg-12"></h2>
+          <h4 id="LossSmallText" class="col-lg-12"></h4>
+        </div>
       </div>
 
       <div class="col-lg-12 text-center">
-        <button type="button" name="button" onmousedown="focusFn(true)"><</button>
-        <button type="button" name="button" onclick="capture()">Capture</button>
-        <button type="button" name="button" onmousedown="focusFn(false)">></button>
+        <button class="focusBtn" type="button" name="button" onclick="focusFn(true)"><i class="fas fa-arrow-left"></i></button>
+        <button class="captureBtn" type="button" name="button" onclick="capture()"><i class="fas fa-camera"></i></button>
+        <button class="focusBtn" type="button" name="button" onclick="focusFn(false)"><i class="fas fa-arrow-right"></i></button>
       </div>
     </div>
 

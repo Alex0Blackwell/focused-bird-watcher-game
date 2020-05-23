@@ -38,7 +38,7 @@ class Bird {
   /* get how long the bird will be on the screen for */
   setTime() {
     // for index 0, time of 12 s, for index 12, time of 2.7 s
-    this.time = Math.floor((10 / (this.index + 1) + 2) * 1000);
+    this.time = Math.floor((10 / (this.index + 1) + 2.5) * 1000);
   }
 
   /* gets the blur of the bird at this time */
@@ -59,6 +59,8 @@ class Bird {
 
     if(rawPrice < 10)
       rawPrice = 10;
+    if(blurAmount > 2)
+      rawPrice = 0;
 
     this.price = rawPrice;
   }
@@ -75,6 +77,8 @@ function capture() {
   document.getElementById("cornerSquare").style.display = "none";
   document.getElementById("photoContainer").style.display = "block";
 
+  localStorage.money = Number(localStorage.money) + bird.price;
+  document.getElementById("money").innerHTML = "$"+localStorage.money;
   document.getElementById("birdPic").src = `css/imgs/${bird.file}`;
   document.getElementById("photoBirdName").innerHTML = "You took a picture of the "+bird.name+'!';
   document.getElementById("photoPrice").innerHTML = "Based on how blurry the picture was, this earned you "+bird.price+" dollars!";
@@ -84,8 +88,11 @@ function capture() {
     res = "Perfect!";
   else if(bird.blur < 1)
     res = "Great!";
+  else if(bird.blur > 2)
+    res = "no Good!";
   document.getElementById("photoBlur").innerHTML = "The picture quality was "+res;
 }
+
 
 function off() {
   document.getElementById("photoContainer").style.display = "none";
@@ -96,15 +103,30 @@ function off() {
 }
 
 function birdGen() {
+  document.getElementById("money").innerHTML = "$"+localStorage.money;
   bird = new Bird();
   bird.setBird();
   bird.setTitle();
   bird.setTime();
-  console.log(bird.time);
   document.getElementById("bird").src = `css/imgs/${bird.file}`;
   timeout = setTimeout(function() {
-    bird.setPrice();
+    document.getElementById("viewfinderWrap").style.display = "none";
+    document.getElementById("cornerSquare").style.display = "none";
+    document.getElementById("gameLoss").style.display = "block";
+    document.getElementById("lossLargeText").innerHTML = "Whoops!";
+    document.getElementById("LossSmallText").innerHTML = "The "+bird.name+" flew away!";
+    setTimeout(function() {
+      document.getElementById("gameLoss").style.display = "none";
+      document.getElementById("viewfinderWrap").style.display = "block";
+      document.getElementById("cornerSquare").style.display = "block";
+    }, 1500);
+    birdGen();
+    onStart();
   }, bird.time);
+}
+
+if(!localStorage.money) {
+  localStorage.money = 0;
 }
 
 birdGen()
