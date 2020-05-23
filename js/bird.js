@@ -76,6 +76,8 @@ function capture() {
   document.getElementById("viewfinderWrap").style.display = "none";
   document.getElementById("cornerSquare").style.display = "none";
   document.getElementById("photoContainer").style.display = "block";
+  document.getElementById("birdInfo").innerHTML = "A peaceful day"
+  document.getElementById("captureBtn").disabled = true;
 
   localStorage.money = Number(localStorage.money) + bird.price;
   document.getElementById("money").innerHTML = "$"+localStorage.money;
@@ -98,6 +100,7 @@ function off() {
   document.getElementById("photoContainer").style.display = "none";
   document.getElementById("viewfinderWrap").style.display = "block";
   document.getElementById("cornerSquare").style.display = "block";
+  document.getElementById("captureBtn").disabled = false;
   birdGen();
   onStart();
 }
@@ -115,7 +118,9 @@ function birdGen() {
     document.getElementById("gameLoss").style.display = "block";
     document.getElementById("lossLargeText").innerHTML = "Whoops!";
     document.getElementById("LossSmallText").innerHTML = "The "+bird.name+" flew away!";
+    document.getElementById("captureBtn").disabled = true;
     setTimeout(function() {
+      document.getElementById("captureBtn").disabled = false;
       document.getElementById("gameLoss").style.display = "none";
       document.getElementById("viewfinderWrap").style.display = "block";
       document.getElementById("cornerSquare").style.display = "block";
