@@ -129,6 +129,13 @@ function capture() {
 }
 
 
+function play() {
+  document.getElementById("tutorial").style.display = "none";
+  document.getElementById("mainGame").style.display = "block";
+  birdGen();
+}
+
+
 function off() {
   document.getElementById("photoContainer").style.display = "none";
   document.getElementById("viewfinderWrap").style.display = "block";
@@ -169,9 +176,18 @@ function birdGen() {
   }, bird.time);
 }
 
-if(!localStorage.money) {
-  localStorage.money = 0;
-  localStorage.birdsBought = 3;
+
+function main() {
+  if(!localStorage.money) {
+    localStorage.money = 0;
+    localStorage.birdsBought = 3;
+    document.getElementById("tutorial").style.display = "block";
+    document.getElementById("mainGame").style.display = "none";
+  } else {
+    birdGen();
+  }
 }
 
-birdGen()
+
+main();
+// birdGen();

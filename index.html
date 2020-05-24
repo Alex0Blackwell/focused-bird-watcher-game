@@ -28,96 +28,118 @@
        <strong id="alert-not-buy-bold"></strong><span id="alert-not-buy-fill"></span>
     </div>
 
-
-    <div class="d-flex row align-items-center min-vh-100 outside">
-      <div class="col-lg-12 text-center">
-        <h1>Focused Bird Watcher</h1>
-      </div>
-      <div class="col-lg-12 text-center">
-        <h2 id="money"></h2>
-      </div>
-      <div class="col-lg-12 text-center">
-        <h4 id="birdInfo">A peaceful day<h4 id="rareId"></h4></h4>
-      </div>
-      <div class="absolutePos" id="viewfinderWrap">
-        <div class="container viewfinder" id="viewfinder">
-          <table class="insideDims">
-            <img id="bird">
-          </table>
-        </div>
-
-      </div>
-      <div class="cornerSquare" id="cornerSquare"></div>
-
-      <div class="container text-center align-items-center" id="photoContainer">
-        <div class="row">
-          <h2 id="photoBirdName" class="col-lg-12">fill</h2>
-          <img id="birdPic" class="col-lg-3 mx-auto">
-          <h3 id="photoPrice" class="col-lg-12">fill</h3>
-          <h4 id="photoBlur" class="col-lg-12">fill</h4>
-          <button class="mx-auto button" type="button" name="button" onclick="off()">Ok!</button>
+    <div id="tutorial">
+      <div class="row text-center">
+        <h1 class="col-lg-6 col-sm-12">Welcome to Focused Bird Watcher!</h1>
+        <div class="row col-lg-6 col-sm-12 text-center">
+          <h2 class="col-lg-12 pad" id="tut0">Since this is your first time trying the game, here is a tutorial!</h2>
+          <h3 class="col-lg-12 pad" id="tut1">The idea of the game is to take pictures of birds in focus.</h3>
+          <h3 class="col-lg-12 pad" id="tut2">The more in focus the pictures, the more you get paid!</h3>
         </div>
       </div>
-
-      <div class="container text-center align-items-center" id="gameLoss">
-        <div class="row">
-          <h2 id="lossLargeText" class="col-lg-12"></h2>
-          <h4 id="LossSmallText" class="col-lg-12"></h4>
-        </div>
+      <br>
+      <div class="row">
+        <h4 class="col-lg-4 col-sm-6 col-xs-12 pad">This game has four rarities of birds: common, rare, epic, and legendary. Rarer birds are harder to take pictures of because they are found less often and they fly away quickly. However, if you are able to take a picture of a more rare bird, you will be paid more for it! </h4>
+        <h4 class="col-lg-4 col-sm-6 col-xs-12 pad">To focus your camera, you can press the left and right arrow keys or the "a" and "d" keys; or you can press the focus buttons on the screen. To take a picture, press the up arrow key, the "w" button, or the button with the camera icon.</h4>
+        <h4 class="col-lg-4 col-sm-6 col-xs-12 pad"> You will start the game with just three known common birds. As you gain money, you can learn what new, rarer, birds look like so you can start taking photos of them. To learn this, open the market by pressing on the market button. Your progress will be stored so you can close the browser whenever you want! Have fun!</h4>
       </div>
-
-      <div class="container text-center align-items-center" id="shop">
-        <div class="row">
-          <h2 class="col-lg-12">Learn what birds look like so you can catch them!</h2>
-          <h4 class="col-lg-12">People will pay more for rarer bird pictures!</h4>
-        </div>
-
-        <div id="shopBirds" class="row">
-          <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
-            <img id="bird1"  class="col-lg-12 shopBird" onclick="buy(0)"> <p class="col-lg-12"></p>
-          </div>
-          <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
-            <img id="bird2"  class="col-lg-12 shopBird" onclick="buy(1)"> <p class="col-lg-12"></p>
-          </div>
-          <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
-            <img id="bird3"  class="col-lg-12 shopBird" onclick="buy(2)"> <p class="col-lg-12"></p>
-          </div>
-          <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
-            <img id="bird4"  class="col-lg-12 shopBird" onclick="buy(3)"> <p class="col-lg-12"></p>
-          </div>
-          <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
-            <img id="bird5"  class="col-lg-12 shopBird" onclick="buy(4)"> <p class="col-lg-12"></p>
-          </div>
-          <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
-            <img id="bird6"  class="col-lg-12 shopBird" onclick="buy(5)"> <p class="col-lg-12"></p>
-          </div>
-          <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
-            <img id="bird7"  class="col-lg-12 shopBird" onclick="buy(6)"> <p class="col-lg-12"></p>
-          </div>
-          <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
-          <img id="bird8"  class="col-lg-12 shopBird" onclick="buy(7)"> <p class="col-lg-12"></p>
-          </div>
-          <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
-            <img id="bird9"  class="col-lg-12 shopBird" onclick="buy(8)"> <p class="col-lg-12"></p>
-          </div>
-          <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
-            <img id="bird10" class="col-lg-12 shopBird" onclick="buy(9)"> <p class="col-lg-12"></p>
-          </div>
-          <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
-            <img id="bird11" class="col-lg-12 shopBird" onclick="buy(10)"> <p class="col-lg-12"></p>
-          </div>
-          <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
-            <img id="bird12" class="col-lg-12 shopBird" onclick="buy(11)"> <p class="col-lg-12"></p>
-          </div>
-        </div>
+      <div class="text-center">
+        <button id="playBtn" type="button" class="button" onclick="play()">Let's Play</button>
       </div>
+    </div>
 
-      <div id="bottomButtons" class="col-lg-12 text-center">
-        <button class="focusBtn" type="button" name="button" onclick="focusFn(true)"><i class="fas fa-arrow-left"></i></button>
-        <button class="captureBtn" id="captureBtn" type="button" name="button" onclick="capture()"><i class="fas fa-camera"></i></button>
-        <button class="focusBtn" type="button" name="button" onclick="focusFn(false)"><i class="fas fa-arrow-right"></i></button>
-        <button class="focusBtn shop" id="storeBtn" type="button" name="button" onclick="shop()"><i id="storeIcon" class="fas fa-store"></i></button>
-        <!-- <i class="fas fa-store-slash"></i> -->
+
+    <div id="mainGame">
+      <div class="d-flex row align-items-center min-vh-100 outside">
+        <div class="col-lg-12 text-center">
+          <h1>Focused Bird Watcher</h1>
+        </div>
+        <div class="col-lg-12 text-center">
+          <h2 id="money"></h2>
+        </div>
+        <div class="col-lg-12 text-center">
+          <h4 id="birdInfo">A peaceful day<h4 id="rareId"></h4></h4>
+        </div>
+        <div class="absolutePos" id="viewfinderWrap">
+          <div class="container viewfinder" id="viewfinder">
+            <table class="insideDims">
+              <img id="bird">
+            </table>
+          </div>
+
+        </div>
+        <div class="cornerSquare" id="cornerSquare"></div>
+
+        <div class="container text-center align-items-center" id="photoContainer">
+          <div class="row">
+            <h2 id="photoBirdName" class="col-lg-12">fill</h2>
+            <img id="birdPic" class="col-lg-3 mx-auto">
+            <h3 id="photoPrice" class="col-lg-12">fill</h3>
+            <h4 id="photoBlur" class="col-lg-12">fill</h4>
+            <button class="mx-auto button" type="button" name="button" onclick="off()">Ok!</button>
+          </div>
+        </div>
+
+        <div class="container text-center align-items-center" id="gameLoss">
+          <div class="row">
+            <h2 id="lossLargeText" class="col-lg-12"></h2>
+            <h4 id="LossSmallText" class="col-lg-12"></h4>
+          </div>
+        </div>
+
+        <div class="container text-center align-items-center" id="shop">
+          <div class="row">
+            <h2 class="col-lg-12">Learn what birds look like so you can catch them!</h2>
+            <h4 class="col-lg-12">People will pay more for rarer bird pictures!</h4>
+          </div>
+
+          <div id="shopBirds" class="row">
+            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+              <img id="bird1"  class="col-lg-12 shopBird" onclick="buy(0)"> <p class="col-lg-12"></p>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+              <img id="bird2"  class="col-lg-12 shopBird" onclick="buy(1)"> <p class="col-lg-12"></p>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+              <img id="bird3"  class="col-lg-12 shopBird" onclick="buy(2)"> <p class="col-lg-12"></p>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+              <img id="bird4"  class="col-lg-12 shopBird" onclick="buy(3)"> <p class="col-lg-12"></p>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+              <img id="bird5"  class="col-lg-12 shopBird" onclick="buy(4)"> <p class="col-lg-12"></p>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+              <img id="bird6"  class="col-lg-12 shopBird" onclick="buy(5)"> <p class="col-lg-12"></p>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+              <img id="bird7"  class="col-lg-12 shopBird" onclick="buy(6)"> <p class="col-lg-12"></p>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+            <img id="bird8"  class="col-lg-12 shopBird" onclick="buy(7)"> <p class="col-lg-12"></p>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+              <img id="bird9"  class="col-lg-12 shopBird" onclick="buy(8)"> <p class="col-lg-12"></p>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+              <img id="bird10" class="col-lg-12 shopBird" onclick="buy(9)"> <p class="col-lg-12"></p>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+              <img id="bird11" class="col-lg-12 shopBird" onclick="buy(10)"> <p class="col-lg-12"></p>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+              <img id="bird12" class="col-lg-12 shopBird" onclick="buy(11)"> <p class="col-lg-12"></p>
+            </div>
+          </div>
+        </div>
+
+        <div id="bottomButtons" class="col-lg-12 text-center">
+          <button class="focusBtn" type="button" name="button" onclick="focusFn(true)"><i class="fas fa-arrow-left"></i></button>
+          <button class="captureBtn" id="captureBtn" type="button" name="button" onclick="capture()"><i class="fas fa-camera"></i></button>
+          <button class="focusBtn" type="button" name="button" onclick="focusFn(false)"><i class="fas fa-arrow-right"></i></button>
+          <button class="focusBtn shop" id="storeBtn" type="button" name="button" onclick="shop()"><i id="storeIcon" class="fas fa-store"></i></button>
+          <!-- <i class="fas fa-store-slash"></i> -->
+        </div>
       </div>
     </div>
 
