@@ -25,11 +25,10 @@ class Bird {
     else if(birdsBought/3 > 2)
       multiplyFactor += birdsBought-4  // 7-9
     else if(birdsBought/3 > 1)
-      multiplyFactor += birdsBought-3  // 5-6
+      multiplyFactor += birdsBought-4  // 4-6
 
 
     var choose = Math.floor(Math.random()*multiplyFactor);
-    console.log(`choose ${choose}, multiplyFactor ${multiplyFactor}`);
     this.index = Math.floor(Math.random()*3);
     if(choose < 4) {
       rarityRaw = this.rarityWords[0];
@@ -99,7 +98,7 @@ class Bird {
   }
 }
 
-var timeout;
+var timeout, gotAwayTimeout;
 var bird;
 
 function capture() {
@@ -141,6 +140,11 @@ function off() {
 
 function birdGen() {
   document.getElementById("money").innerHTML = "$"+localStorage.money;
+  var storeBtn = document.getElementById("storeIcon")
+  storeBtn.classList.remove("fa-store-slash");
+  storeBtn.classList.add("fa-store");
+  document.getElementById("storeBtn").onclick = function() {shop()};
+
   bird = new Bird();
   bird.setBird();
   bird.setTitle();
@@ -153,7 +157,8 @@ function birdGen() {
     document.getElementById("lossLargeText").innerHTML = "Whoops!";
     document.getElementById("LossSmallText").innerHTML = "The "+bird.name+" flew away!";
     document.getElementById("captureBtn").disabled = true;
-    setTimeout(function() {
+
+    gotAwayTimeout = setTimeout(function() {
       document.getElementById("captureBtn").disabled = false;
       document.getElementById("gameLoss").style.display = "none";
       document.getElementById("viewfinderWrap").style.display = "block";

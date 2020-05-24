@@ -7,8 +7,28 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link rel="stylesheet" href="css/master.css">
     <link rel="stylesheet" href="vendor/fontawesome/css/all.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   </head>
   <body>
+
+    <!-- alerts -->
+    <!-- bird  is already owned -->
+    <div id="alert-bought" class="alert">
+      <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+       <strong id="alert-bought-bold"></strong><span id="alert-bought-fill"></span>
+    </div>
+    <!-- new bird is bought ok -->
+    <div id="alert-buy" class="alert">
+      <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+       <strong id="alert-buy-bold"></strong><span id="alert-buy-fill"></span>
+    </div>
+    <!-- bird could not be bought -->
+    <div id="alert-not-buy" class="alert">
+      <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+       <strong id="alert-not-buy-bold"></strong><span id="alert-not-buy-fill"></span>
+    </div>
+
+
     <div class="d-flex row align-items-center min-vh-100 outside">
       <div class="col-lg-12 text-center">
         <h1>Focused Bird Watcher</h1>
@@ -46,14 +66,63 @@
         </div>
       </div>
 
-      <div class="col-lg-12 text-center">
+      <div class="container text-center align-items-center" id="shop">
+        <div class="row">
+          <h2 class="col-lg-12">Learn what birds look like so you can catch them!</h2>
+          <h4 class="col-lg-12">People will pay more for rarer bird pictures!</h4>
+        </div>
+
+        <div id="shopBirds" class="row">
+          <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+            <img id="bird1"  class="col-lg-12 shopBird" onclick="buy(0)"> <p class="col-lg-12"></p>
+          </div>
+          <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+            <img id="bird2"  class="col-lg-12 shopBird" onclick="buy(1)"> <p class="col-lg-12"></p>
+          </div>
+          <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+            <img id="bird3"  class="col-lg-12 shopBird" onclick="buy(2)"> <p class="col-lg-12"></p>
+          </div>
+          <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+            <img id="bird4"  class="col-lg-12 shopBird" onclick="buy(3)"> <p class="col-lg-12"></p>
+          </div>
+          <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+            <img id="bird5"  class="col-lg-12 shopBird" onclick="buy(4)"> <p class="col-lg-12"></p>
+          </div>
+          <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+            <img id="bird6"  class="col-lg-12 shopBird" onclick="buy(5)"> <p class="col-lg-12"></p>
+          </div>
+          <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+            <img id="bird7"  class="col-lg-12 shopBird" onclick="buy(6)"> <p class="col-lg-12"></p>
+          </div>
+          <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+          <img id="bird8"  class="col-lg-12 shopBird" onclick="buy(7)"> <p class="col-lg-12"></p>
+          </div>
+          <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+            <img id="bird9"  class="col-lg-12 shopBird" onclick="buy(8)"> <p class="col-lg-12"></p>
+          </div>
+          <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+            <img id="bird10" class="col-lg-12 shopBird" onclick="buy(9)"> <p class="col-lg-12"></p>
+          </div>
+          <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+            <img id="bird11" class="col-lg-12 shopBird" onclick="buy(10)"> <p class="col-lg-12"></p>
+          </div>
+          <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+            <img id="bird12" class="col-lg-12 shopBird" onclick="buy(11)"> <p class="col-lg-12"></p>
+          </div>
+        </div>
+      </div>
+
+      <div id="bottomButtons" class="col-lg-12 text-center">
         <button class="focusBtn" type="button" name="button" onclick="focusFn(true)"><i class="fas fa-arrow-left"></i></button>
         <button class="captureBtn" id="captureBtn" type="button" name="button" onclick="capture()"><i class="fas fa-camera"></i></button>
         <button class="focusBtn" type="button" name="button" onclick="focusFn(false)"><i class="fas fa-arrow-right"></i></button>
+        <button class="focusBtn shop" id="storeBtn" type="button" name="button" onclick="shop()"><i id="storeIcon" class="fas fa-store"></i></button>
+        <!-- <i class="fas fa-store-slash"></i> -->
       </div>
     </div>
 
     <script src="js/blur.js" charset="utf-8"></script>
     <script src="js/bird.js" charset="utf-8"></script>
+    <script src="js/shop.js" charset="utf-8"></script>
   </body>
 </html>
