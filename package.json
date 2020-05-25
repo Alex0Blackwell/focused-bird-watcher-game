@@ -1,0 +1,28 @@
+{
+  "name": "focused-bird-watcher-game",
+  "version": "1.0.0",
+  "description": "Bird watching browser game that simulates focusing a camera to take pictures of birds before they fly away",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Alex0Blackwell/focused-bird-watcher-game.git"
+  },
+  "keywords": [
+    "javascript",
+    "javascript-game",
+    "browsergame",
+    "game"
+  ],
+  "author": "Alex Blackwell",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Alex0Blackwell/focused-bird-watcher-game/issues"
+  },
+  "homepage": "https://github.com/Alex0Blackwell/focused-bird-watcher-game#readme",
+  "devDependencies": {
+    "jest": "^26.0.1"
+  }
+}
