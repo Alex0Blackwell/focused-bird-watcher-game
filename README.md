@@ -11,3 +11,7 @@ You start with common birds and based on how blurry your photo's are, as well as
 ## Tech Stack
 - VanillaJS
 - Bootstrap
+
+## Testing
+Testing done with Jest  
+Run tests with `npm run test`
