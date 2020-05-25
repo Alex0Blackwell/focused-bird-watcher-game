@@ -2,12 +2,18 @@
 @font-face { font-family: pixelFont; font-weight: bold; src: url('fonts/pixelFont1.ttf');}
 
 body {
-  overflow-x: hidden;
   background-color: #262626;
+  overflow-x: hidden;
+  touch-action: manipulation;
 }
 
 h1, h2, h3, h4, p {
   color: white;
+  font-family: pixelFont, sans-serif;
+}
+
+strong, .bt {
+  color: black;
   font-family: pixelFont, sans-serif;
 }
 
@@ -20,7 +26,6 @@ h1, h2, h3, h4, p {
   left: 0;
   right: 0;
   bottom: 0;
-  z-index: 2;
 }
 
 #photoContainer, #gameLoss {
@@ -30,13 +35,13 @@ h1, h2, h3, h4, p {
   display: none;
   padding-top: 5vh;
   min-height: 56vh;
-  /* height: 56vh; */
   width: 56vw;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  z-index: 2;
+  overflow-x: hidden;
+  touch-action: manipulation;
 }
 
 #shop {
@@ -53,13 +58,17 @@ h1, h2, h3, h4, p {
   bottom: 0;
 }
 
+.container {
+  overflow-x: hidden;
+  touch-action: manipulation;
+}
+
 .shopBird {
   cursor: pointer;
   border: 2px solid #e3e3e3;
   height: 130px;
   width: 130px;
 }
-
 
 .viewfinder {
    position: relative;
@@ -70,14 +79,16 @@ h1, h2, h3, h4, p {
    border-radius: 5px;
    height: 60vh;
    width: 60vw;
-   margin-top: 20vh;
+   margin-top: 16vh;
    padding: 0;
    overflow: hidden;
+   touch-action: manipulation;
 }
 
 .outside {
   background-color: #262626;
-  /* background-image: radial-gradient(#5c5c5c, #363636, #1f1f1f); */
+  overflow-x: hidden;
+  touch-action: manipulation;
 }
 
 .absolutePos {
@@ -94,7 +105,7 @@ h1, h2, h3, h4, p {
   width: 60px;
   height: 60px;
   border-radius: 5px;
-  transition-duration: 0.3s;
+  transition-duration: 0.2s;
 }
 
 .focusBtn:hover, .captureBtn:hover  {
@@ -104,22 +115,63 @@ h1, h2, h3, h4, p {
 }
 
 .captureBtn {
+  background-color: #e3e3e3;
   width: 60px;
   height: 60px;
   border-radius: 50%;
   margin-left: 10px;
   margin-right: 10px;
-  transition-duration: 0.3s;
+  transition-duration: 0.2s;
 }
 
+#storeBtn {
+  background-color: #e3e3e3;
+  color: #262626;
+  border: 2px solid #262626;
+  text-decoration: none;
+  padding: 15px 15px;
+  margin-top: 5px;
+  right: 10vw;
+  position: absolute;
+  display: inline-block;
+  border-radius: 2px;
+  transition-duration: 0.2s;
+}
+
+#storeBtn:hover {
+  cursor: pointer;
+  background-color: #262626;
+  color: #e3e3e3;
+  border: 2px solid #e3e3e3;
+}
+
+#storeBtn {
+  border-radius: 5px;
+}
+
+#badge {
+  display: none;
+  position: absolute;
+  top: -9px;
+  right: -9px;
+  padding: 1px 9px;
+  border-radius: 50%;
+  background: #ff4f4f;
+  color: white;
+}
+
+
 .shop {
+  background-color: #e3e3e3;
+  border: 2px solid #262626;
   position: absolute;
   right: 10vw;
+  margin: 4px 2px;
 }
 
 .cornerSquare {
   position: relative;
-  z-index: 10;
+  /* z-index: 10; */
   top: 0px;
   padding: 0;
   margin: 0;
@@ -141,12 +193,10 @@ h1, h2, h3, h4, p {
 
   background-repeat: no-repeat;
   background-size: 50px 50px;
-  overflow-x: visible;
 }
 
 .button {
   background-color: #e3e3e3;
-  border: none;
   color: #262626;
   border: 2px solid #262626;
   border-radius: 5px;
@@ -164,6 +214,21 @@ h1, h2, h3, h4, p {
   background-color: #262626;
   color: #e3e3e3;
   border: 2px solid #e3e3e3;
+}
+
+.backBtn {
+  background-color: #e3e3e3;
+  color: #262626;
+  border: 2px solid #262626;
+  border-radius: 5px;
+  /* padding: 10px 20px; */
+  text-align: center;
+  display: inline;
+  width: 60px;
+  /* font-size: 16px; */
+  margin: 0 7px;
+  transition-duration: 0.4s;
+  cursor: pointer;
 }
 
 #bird {
@@ -193,7 +258,10 @@ h1, h2, h3, h4, p {
     font-size: 4vw;
   }
   .viewfinder {
-    margin-top: 18vh;
+    margin-top: 20vh;
+  }
+  #birdInfo {
+    margin-top: 2vh;
   }
 }
 
@@ -218,7 +286,7 @@ h1, h2, h3, h4, p {
   top:0%;
   width:100%;
   opacity: 1;
-  z-index: 1;
+  z-index: 2;
 }
 
 .closebtn {

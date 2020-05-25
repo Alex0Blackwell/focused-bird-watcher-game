@@ -65,9 +65,11 @@ function onStart() {
     // about the size of phones -> tablets
     // because they don't get arrow keys it needs to be easier
     blurAmount = 2.5;
+    blurAmount -= (Math.random()*.5).toFixed(2);
+  } else {
+    // add some randomness
+    blurAmount -= (Math.random()*2).toFixed(2);
   }
-  // add some randomness
-  blurAmount -= (Math.random()*2).toFixed(2);
   document.getElementById("viewfinder").style.filter = `blur(${blurAmount}px)`
   tooIn = (Math.random() > 0.5);
 }

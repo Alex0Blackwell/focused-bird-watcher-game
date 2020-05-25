@@ -1,17 +1,20 @@
 class Bird {
-  birds = ["Black Bird", "Blue Bird", "Brown Bird", "Dark Blue Bird", "Gray Bird",
-           "Green Bird", "Orange Bird", "Tan Bird", "Red Bird", "White Bird",
-           "Yellow Bird", "Purple Bird"];
 
-  imgName = ["blackBird.gif", "blueBird.gif","brownBird.gif","darkBlueBird.gif",
-             "grayBird.gif","greenBird.gif","orangeBird.gif","tanBird.gif",
-             "redBird.gif","whiteBird.gif","yellowBird.gif", "purpleBird.gif"];
+  constructor() {
+    this.birds = ["Black Bird", "Blue Bird", "Brown Bird", "Dark Blue Bird", "Gray Bird",
+    "Green Bird", "Orange Bird", "Tan Bird", "Red Bird", "White Bird",
+    "Yellow Bird", "Purple Bird"];
 
-  titleWords = ["A wild ", "An elusive ", "The fabled ", "The forgotten ",
-                "A seemingly extinct ", "A crazy ", "A shy ", "The legendary ",
-                "The mythical "];
+    this.imgName = ["blackBird.gif", "blueBird.gif","brownBird.gif","darkBlueBird.gif",
+    "grayBird.gif","greenBird.gif","orangeBird.gif","tanBird.gif",
+    "redBird.gif","whiteBird.gif","yellowBird.gif", "purpleBird.gif"];
 
-  rarityWords = ["(Common)", "(Rare)", "(Epic)", "(Legendary)"];
+    this.titleWords = ["A wild ", "An elusive ", "The fabled ", "The forgotten ",
+    "A seemingly extinct ", "A crazy ", "A shy ", "The legendary ",
+    "The mythical "];
+
+    this.rarityWords = ["(Common)", "(Rare)", "(Epic)", "(Legendary)"];
+  }
 
   /* gets the index based on a rarity sytem. The index is then used to get the
    * bird name and the bird image name */
@@ -105,6 +108,7 @@ function capture() {
   clearTimeout(timeout);
   bird.setBlur();
   bird.setPrice();
+  let ls = localStorage;
   document.getElementById("viewfinderWrap").style.display = "none";
   document.getElementById("cornerSquare").style.display = "none";
   document.getElementById("photoContainer").style.display = "block";
@@ -112,27 +116,59 @@ function capture() {
   document.getElementById("rareId").innerHTML = " "
   document.getElementById("captureBtn").disabled = true;
 
-  localStorage.money = Number(localStorage.money) + bird.price;
-  document.getElementById("money").innerHTML = "$"+localStorage.money;
+  ls.money = Number(ls.money) + bird.price;
+  // check if the next bird can be bought and set the notification
+  if(Number(ls.money) >= birdPrices[Number(ls.birdsBought)]) {
+    document.getElementById("badge").style.display = "block";
+  }
+
+  document.getElementById("money").innerHTML = "$"+ls.money;
   document.getElementById("birdPic").src = `css/imgs/${bird.file}`;
   document.getElementById("photoBirdName").innerHTML = "You took a picture of the "+bird.name+'! '+bird.rarity;
-  document.getElementById("photoPrice").innerHTML = "Based on how blurry the picture was, this earned you "+bird.price+" dollars!";
-  // choppy chop that blur number. There's no good way to do this
+  var blurBonus = "";
   var res = "ok.";
-  if(bird.blur == 0)
+  if(bird.blur == 0) {
     res = "Perfect!";
+    ls.money = Number(ls.money) + 15;
+    blurBonus = " Plus an "+"extra 15 dollars".fontcolor("#80ff86")+" for perfect picture quality!"
+  }
   else if(bird.blur < 1)
     res = "Great!";
   else if(bird.blur > 2)
     res = "no Good!";
   document.getElementById("photoBlur").innerHTML = "The picture quality was "+res;
+  document.getElementById("photoPrice").innerHTML = "Based on how blurry the picture was, this earned you "+(bird.price+" dollars").fontcolor("#80ff86")+"!"+blurBonus;
+}
+
+
+function showTutorial() {
+  // in case there are existing timeouts
+  clearTimeout(timeout);
+  clearTimeout(gotAwayTimeout);
+  document.getElementById("tutorial").style.display = "block";
+  document.getElementById("mainGame").style.display = "none";
 }
 
 
 function play() {
+  // turn off tutorial
   document.getElementById("tutorial").style.display = "none";
+  // turn off capture
+  document.getElementById("photoContainer").style.display = "none";
+  // turn off game loss
+  document.getElementById("gameLoss").style.display = "none";
+  // turn off shop
+  document.getElementById("shop").style.display = "none";
+
+  // turn on main game and jump into a game
   document.getElementById("mainGame").style.display = "block";
+  document.getElementById("viewfinderWrap").style.display = "block";
+  document.getElementById("cornerSquare").style.display = "block";
+  document.getElementById("birdInfo").style.display = "block";
+  document.getElementById("captureBtn").disabled = false;
+
   birdGen();
+  onStart();
 }
 
 
@@ -181,13 +217,12 @@ function main() {
   if(!localStorage.money) {
     localStorage.money = 0;
     localStorage.birdsBought = 3;
-    document.getElementById("tutorial").style.display = "block";
-    document.getElementById("mainGame").style.display = "none";
-  } else {
+    showTutorial();
+  }
+  else {
     birdGen();
   }
 }
 
 
 main();
-// birdGen();

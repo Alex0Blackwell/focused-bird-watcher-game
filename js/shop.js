@@ -6,12 +6,16 @@ function buy(index) {
   let ls = localStorage;
   birdsBought = Number(ls.birdsBought);
   clearTimeout(previousAlert);
+  document.getElementById("alert-buy").style.display = "none";
+  document.getElementById("alert-bought").style.display = "none";
+  document.getElementById("alert-bought").style.display = "none";
+  document.getElementById("alert-not-buy").style.display = "none";
 
   if(index < birdsBought) {
     // then this bird has been bought and let's show some info
     el = document.getElementById("alert-bought");
-    document.getElementById("alert-bought-bold").innerHTML = bird.birds[index]
-    document.getElementById("alert-bought-fill").innerHTML = " You own this bird!";
+    document.getElementById("alert-bought-bold").innerHTML = bird.birds[index].toUpperCase()
+    document.getElementById("alert-bought-fill").innerHTML = ": You own this bird!";
     el.style.display = "block";
     previousAlert = setTimeout(function(){
       $("#alert-bought").fadeOut();
@@ -20,11 +24,16 @@ function buy(index) {
   else if(index == birdsBought && Number(ls.money) >= birdPrices[index]) {
     // then this item can be bought
     el = document.getElementById("alert-buy");
-    document.getElementById("alert-buy-bold").innerHTML = "Nice!"
+    document.getElementById("alert-buy-bold").innerHTML = "NICE!"
     document.getElementById("alert-buy-fill").innerHTML = " You can now catch the "+bird.birds[index];
     ls.birdsBought = Number(ls.birdsBought) + 1;
     ls.money = Number(ls.money) - birdPrices[index];
     document.getElementById("money").innerHTML = '$'+Number(ls.money);
+    if(Number(ls.money) >= birdPrices[Number(ls.birdsBought)]) {
+      document.getElementById("badge").style.display = "block";
+    } else {
+      document.getElementById("badge").style.display = "none";
+    }
     shop();
 
     // document.getElementById("bird"+(index+1)).src = bird.imgName[i];
@@ -36,7 +45,7 @@ function buy(index) {
   else if(index > birdsBought) {
     // then birds must be bought before this one is bought
     el = document.getElementById("alert-not-buy");
-    document.getElementById("alert-not-buy-bold").innerHTML = "Whoops!"
+    document.getElementById("alert-not-buy-bold").innerHTML = "WHOOPS!"
     document.getElementById("alert-not-buy-fill").innerHTML = " Buy the birds before this one!";
     el.style.display = "block";
     previousAlert = setTimeout(function() {
@@ -45,7 +54,7 @@ function buy(index) {
   }
   else if(Number(ls.money) < birdPrices[index]) {
     el = document.getElementById("alert-not-buy");
-    document.getElementById("alert-not-buy-bold").innerHTML = "Whoops!"
+    document.getElementById("alert-not-buy-bold").innerHTML = "WHOOPS!"
     document.getElementById("alert-not-buy-fill").innerHTML = " Not enough money!";
     el.style.display = "block";
     previousAlert = setTimeout(function() {
@@ -116,6 +125,7 @@ function closeShop() {
   document.getElementById("cornerSquare").style.display = "block";
   document.getElementById("birdInfo").style.display = "block";
   document.getElementById("captureBtn").disabled = false;
+  onStart();
   birdGen();
   // document.getElementById("photoContainer").style.display = "block";
 
