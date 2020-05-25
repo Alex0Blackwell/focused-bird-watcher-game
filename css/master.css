@@ -70,6 +70,10 @@ strong, .bt {
   width: 130px;
 }
 
+#viewfinderWrap {
+  pointer-events: none;
+}
+
 .viewfinder {
    position: relative;
    left: -50%;
@@ -171,7 +175,6 @@ strong, .bt {
 
 .cornerSquare {
   position: relative;
-  /* z-index: 10; */
   top: 0px;
   padding: 0;
   margin: 0;
@@ -221,11 +224,9 @@ strong, .bt {
   color: #262626;
   border: 2px solid #262626;
   border-radius: 5px;
-  /* padding: 10px 20px; */
   text-align: center;
   display: inline;
   width: 60px;
-  /* font-size: 16px; */
   margin: 0 7px;
   transition-duration: 0.4s;
   cursor: pointer;
@@ -234,9 +235,11 @@ strong, .bt {
 #bird {
   width: 150px;
   position: absolute;
-  top: 50%;
+  /* top: 50%; */
+  bottom: 10%;
   left: 40%;
 }
+
 
 @media only screen and (max-width: 800px) {
   #bird {
@@ -245,6 +248,7 @@ strong, .bt {
 }
 
 @media only screen and (max-width: 650px) {
+  /* phone  */
   #bird {
     left: 20%;
   }
@@ -262,6 +266,9 @@ strong, .bt {
   }
   #birdInfo {
     margin-top: 2vh;
+  }
+  strong, .bt {
+    font-size: 14px;
   }
 }
 
