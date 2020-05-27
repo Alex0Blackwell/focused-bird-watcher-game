@@ -1,4 +1,4 @@
-Play the game [here](https://alex0blackwell.github.io/pages/birdWatch/index.html "Bird Watch Game")!
+Play the game [here](https://birdwatch.games/ "Bird Watch Game")!
 
 ![](css/imgs/brownBird.gif "Pumped!") ![](css/imgs/whiteBird.gif "Woo Bird Game!") ![](css/imgs/blueBird.gif "Take Some Bird Pics!") ![](css/imgs/yellowBird.gif "Bet you can't unlock me!") ![](css/imgs/darkBlueBird.gif "I won't stop dancing!") ![](css/imgs/greenBird.gif "Look at my knees!")
 
