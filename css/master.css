@@ -18,7 +18,7 @@ strong, .bt {
 }
 
 #tutorial {
-  margin-top: 10vh;
+  margin-top: 25px;
   display: none;
   width: 100%;
   height: 100%;
@@ -26,6 +26,38 @@ strong, .bt {
   left: 0;
   right: 0;
   bottom: 0;
+}
+
+#tutTitle {
+  font-size: 5vw;
+}
+
+.tutSubTitle {
+  font-size: 30px;
+}
+
+.tutBird {
+  width: 10vw;
+}
+
+#playBtn {
+  margin-bottom: 10px;
+}
+
+.green {
+  color: #80ff86;
+}
+
+.blue {
+  color: #8fc7ff;
+}
+
+.purple {
+  color: #cea1ff;
+}
+
+.gold {
+  color: #fff454;
 }
 
 #photoContainer, #gameLoss {
@@ -40,7 +72,7 @@ strong, .bt {
   left: 0;
   right: 0;
   bottom: 0;
-  overflow-x: hidden;
+  /* overflow-x: hidden; */
   touch-action: manipulation;
 }
 
@@ -59,7 +91,7 @@ strong, .bt {
 }
 
 .container {
-  overflow-x: hidden;
+  /* overflow-x: hidden; */
   touch-action: manipulation;
 }
 
@@ -67,37 +99,42 @@ strong, .bt {
   cursor: pointer;
   border: 2px solid #e3e3e3;
   height: 130px;
-  width: 130px;
+  /* overflow: hidden; */
+}
+
+.shopBirdImg {
+  height: 80%;
+  width: auto;
 }
 
 #viewfinderWrap {
   pointer-events: none;
+  margin-bottom: 10px;
 }
 
 .viewfinder {
    position: relative;
-   left: -50%;
+   right: -50%;
    background-image: url("imgs/background.png");
    background-repeat: no-repeat;
    background-size: cover;
    border-radius: 5px;
    height: 60vh;
    width: 60vw;
-   margin-top: 16vh;
+   margin-top: 20%;
    padding: 0;
-   overflow: hidden;
    touch-action: manipulation;
+   margin-top: 20vh;
 }
 
 .outside {
   background-color: #262626;
-  overflow-x: hidden;
   touch-action: manipulation;
 }
 
 .absolutePos {
   position: absolute;
-  left: 50%;
+  right: 50%;
 }
 
 .insideDims {
@@ -128,7 +165,7 @@ strong, .bt {
   transition-duration: 0.2s;
 }
 
-#storeBtn {
+#fullScreenBtn {
   background-color: #e3e3e3;
   color: #262626;
   border: 2px solid #262626;
@@ -140,17 +177,29 @@ strong, .bt {
   display: inline-block;
   border-radius: 2px;
   transition-duration: 0.2s;
+  border-radius: 5px;
 }
 
-#storeBtn:hover {
+#storeBtn {
+  background-color: #e3e3e3;
+  color: #262626;
+  border: 2px solid #262626;
+  text-decoration: none;
+  padding: 15px 15px;
+  margin-top: 5px;
+  left: 10vw;
+  position: absolute;
+  display: inline-block;
+  border-radius: 2px;
+  transition-duration: 0.2s;
+  border-radius: 5px;
+}
+
+#storeBtn:hover, #fullScreenBtn:hover {
   cursor: pointer;
   background-color: #262626;
   color: #e3e3e3;
   border: 2px solid #e3e3e3;
-}
-
-#storeBtn {
-  border-radius: 5px;
 }
 
 #badge {
@@ -177,11 +226,10 @@ strong, .bt {
   position: relative;
   top: 0px;
   padding: 0;
-  margin: 0;
-  margin-top: -200px;
   width: 56vw;
   height: 56vh;
   margin: auto;
+  overflow-x: hidden;
   /* margin-top: 2vh; */
 
   background:
@@ -224,9 +272,11 @@ strong, .bt {
   color: #262626;
   border: 2px solid #262626;
   border-radius: 5px;
+  /* padding: 10px 20px; */
   text-align: center;
   display: inline;
   width: 60px;
+  /* font-size: 16px; */
   margin: 0 7px;
   transition-duration: 0.4s;
   cursor: pointer;
@@ -235,11 +285,9 @@ strong, .bt {
 #bird {
   width: 150px;
   position: absolute;
-  /* top: 50%; */
   bottom: 10%;
   left: 40%;
 }
-
 
 @media only screen and (max-width: 800px) {
   #bird {
@@ -248,7 +296,7 @@ strong, .bt {
 }
 
 @media only screen and (max-width: 650px) {
-  /* phone  */
+  /* phone */
   #bird {
     left: 20%;
   }
@@ -261,19 +309,27 @@ strong, .bt {
   h3, h4 {
     font-size: 4vw;
   }
-  .viewfinder {
-    margin-top: 20vh;
+  .alert {
+    font-size: 12px;
   }
   #birdInfo {
     margin-top: 2vh;
   }
-  strong, .bt {
-    font-size: 14px;
+  #fullScreenBtn {
+    display: none;
   }
+  #tutTitle {
+    font-size: 50px;
+  }
+}
+
+#rareId {
+  padding-bottom: 10px;
 }
 
 #birdPic {
   width: 150px;
+  height: auto;
 }
 
 #money {
@@ -281,7 +337,9 @@ strong, .bt {
 }
 
 #bottomButtons {
-  margin-top: 10px;
+  padding-top: 10px;
+  width: 100%;
+  overflow-x: hidden;
 }
 
 .alert {
@@ -292,8 +350,11 @@ strong, .bt {
   position: fixed;
   top:0%;
   width:100%;
-  opacity: 1;
   z-index: 2;
+
+  opacity: 1;
+  -webkit-transition: opacity 1000ms linear;
+  transition: opacity 1000ms linear;
 }
 
 .closebtn {

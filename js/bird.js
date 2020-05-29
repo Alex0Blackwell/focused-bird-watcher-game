@@ -3,57 +3,56 @@ class Bird {
   constructor() {
     this.birds = ["Black Bird", "Blue Bird", "Brown Bird", "Dark Blue Bird", "Gray Bird",
     "Green Bird", "Orange Bird", "Tan Bird", "Red Bird", "White Bird",
-    "Yellow Bird", "Purple Bird"];
+    "Yellow Bird", "Charles"];
 
     this.imgName = ["blackBird.gif", "blueBird.gif","brownBird.gif","darkBlueBird.gif",
     "grayBird.gif","greenBird.gif","orangeBird.gif","tanBird.gif",
     "redBird.gif","whiteBird.gif","yellowBird.gif", "purpleBird.gif"];
 
     this.titleWords = ["A wild ", "An elusive ", "The fabled ", "The forgotten ",
-    "A seemingly extinct ", "A crazy ", "A shy ", "The legendary ",
-    "The mythical "];
+    "A crazy ", "A shy ", "The legendary ", "The mythical "];
 
     this.rarityWords = ["(Common)", "(Rare)", "(Epic)", "(Legendary)"];
   }
 
   /* gets the index based on a rarity sytem. The index is then used to get the
    * bird name and the bird image name */
-  setBird() {
-    var rarityArr = [];
-    var rarityRaw, range, numToAdd;
-    var birdsBought = Number(localStorage.birdsBought);
+   setBird() {
+     var rarityArr = [];
+     var rarityRaw, range, numToAdd;
+     var birdsBought = Number(localStorage.birdsBought);
 
-    for(let i = 0; i < birdsBought; i++) {
-      if(i < 3)
-        numToAdd = 4;
-      else if(i < 6)
-        numToAdd = 3;
-      else if(i < 9)
-        numToAdd = 2;
-      else if(i < 12)
-        numToAdd = 1;
+     for(let i = 0; i < birdsBought; i++) {
+       if(i < 3)
+         numToAdd = 4;
+       else if(i < 6)
+         numToAdd = 3;
+       else if(i < 9)
+         numToAdd = 2;
+       else if(i < 12)
+         numToAdd = 1;
 
-      for(let j = 0; j < numToAdd; j++) {
-        rarityArr.push(i)
-      }
-    }
+       for(let j = 0; j < numToAdd; j++) {
+         rarityArr.push(i)
+       }
+     }
 
-    this.index = rarityArr[Math.floor(Math.random()*rarityArr.length)]
-    if(this.index < 3) {
-      this.rarity = this.rarityWords[0].fontcolor("#80ff86");
-    } else if(this.index < 6) {
-      // "Dark Blue Bird", "Gray Bird", "Green Bird"
-      this.rarity = this.rarityWords[1].fontcolor("#8fc7ff");
-    } else if(this.index < 9) {
-      // "Orange Bird", "Tan Bird", "Red Bird"
-      this.rarity = this.rarityWords[2].fontcolor("#cea1ff");
-    } else if(this.index < 12) {
-      // "White Bird", "Yellow Bird", "Purple Bird"
-      this.rarity = this.rarityWords[3].fontcolor("#fff454");
-    }
-    this.name = this.birds[this.index];
-    this.file = this.imgName[this.index];
-  }
+     this.index = rarityArr[Math.floor(Math.random()*rarityArr.length)]
+     if(this.index < 3) {
+       this.rarity = this.rarityWords[0].fontcolor("#80ff86");
+     } else if(this.index < 6) {
+       // "Dark Blue Bird", "Gray Bird", "Green Bird"
+       this.rarity = this.rarityWords[1].fontcolor("#8fc7ff");
+     } else if(this.index < 9) {
+       // "Orange Bird", "Tan Bird", "Red Bird"
+       this.rarity = this.rarityWords[2].fontcolor("#cea1ff");
+     } else if(this.index < 12) {
+       // "White Bird", "Yellow Bird", "Purple Bird"
+       this.rarity = this.rarityWords[3].fontcolor("#fff454");
+     }
+     this.name = this.birds[this.index];
+     this.file = this.imgName[this.index];
+   }
 
   /* choses a random title from the titlewords array and sets it */
   setTitle() {
@@ -203,6 +202,43 @@ function birdGen() {
       onStart();
     }, 1500);
   }, bird.time);
+}
+
+function openFullscreen() {
+  var elem = document.documentElement;
+  if (elem.requestFullscreen) {
+    elem.requestFullscreen();
+  } else if (elem.mozRequestFullScreen) { /* Firefox */
+    elem.mozRequestFullScreen();
+  } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+    elem.webkitRequestFullscreen();
+  } else if (elem.msRequestFullscreen) { /* IE/Edge */
+    elem.msRequestFullscreen();
+  } else {
+    return;
+  }
+  var fullBtn = document.getElementById("fullScreenIcon")
+  fullBtn.classList.remove("fa-expand");
+  fullBtn.classList.add("fa-compress");
+  document.getElementById("fullScreenBtn").onclick = function() {closeFullscreen()};
+}
+
+function closeFullscreen() {
+  if (document.exitFullscreen) {
+    document.exitFullscreen();
+  } else if (document.mozCancelFullScreen) {
+    document.mozCancelFullScreen();
+  } else if (document.webkitExitFullscreen) {
+    document.webkitExitFullscreen();
+  } else if (document.msExitFullscreen) {
+    document.msExitFullscreen();
+  } else {
+    return;
+  }
+  var fullBtn = document.getElementById("fullScreenIcon")
+  fullBtn.classList.remove("fa-compress");
+  fullBtn.classList.add("fa-expand");
+  document.getElementById("fullScreenBtn").onclick = function() {openFullscreen()};
 }
 
 

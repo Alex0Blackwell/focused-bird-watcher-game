@@ -18,7 +18,7 @@ function buy(index) {
     document.getElementById("alert-bought-fill").innerHTML = ": You own this bird!";
     el.style.display = "block";
     previousAlert = setTimeout(function(){
-      $("#alert-bought").fadeOut();
+      el.style.display = "none";
     }, 2000);
   }
   else if(index == birdsBought && Number(ls.money) >= birdPrices[index]) {
@@ -26,6 +26,7 @@ function buy(index) {
     el = document.getElementById("alert-buy");
     document.getElementById("alert-buy-bold").innerHTML = "NICE!"
     document.getElementById("alert-buy-fill").innerHTML = " You can now catch the "+bird.birds[index];
+
     ls.birdsBought = Number(ls.birdsBought) + 1;
     ls.money = Number(ls.money) - birdPrices[index];
     document.getElementById("money").innerHTML = '$'+Number(ls.money);
@@ -36,10 +37,9 @@ function buy(index) {
     }
     shop();
 
-    // document.getElementById("bird"+(index+1)).src = bird.imgName[i];
-    document.getElementById("alert-buy").style.display = "block";
-    previousAlert = setTimeout(function(){
-      $("#alert-buy").fadeOut();
+    el.style.display = "block";
+    previousAlert = setTimeout(function() {
+      el.style.display = "none"
     }, 2000);
   }
   else if(index > birdsBought) {
@@ -47,10 +47,12 @@ function buy(index) {
     el = document.getElementById("alert-not-buy");
     document.getElementById("alert-not-buy-bold").innerHTML = "WHOOPS!"
     document.getElementById("alert-not-buy-fill").innerHTML = " Buy the birds before this one!";
+
     el.style.display = "block";
     previousAlert = setTimeout(function() {
-      $("#alert-not-buy").fadeOut();
+      el.style.display = "none"
     }, 2000);
+
   }
   else if(Number(ls.money) < birdPrices[index]) {
     el = document.getElementById("alert-not-buy");
@@ -58,7 +60,7 @@ function buy(index) {
     document.getElementById("alert-not-buy-fill").innerHTML = " Not enough money!";
     el.style.display = "block";
     previousAlert = setTimeout(function() {
-      $("#alert-not-buy").fadeOut();
+      el.style.display = "none"
     }, 2000);
   }
 }
@@ -77,7 +79,6 @@ function shop() {
   var rawPrice, thisPrice, color, birdName;
 
   var parent = document.getElementById("shopBirds").children;
-  console.log(parent.length);
   for(var i = 0; i < parent.length; i++) {
     if(i+1 <= localStorage.birdsBought) {
       if(i < 3)
