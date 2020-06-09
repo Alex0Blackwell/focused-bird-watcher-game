@@ -1,4 +1,5 @@
 # Bird Watch Game
+[![Build Status](https://travis-ci.org/Alex0Blackwell/focused-bird-watcher-game.svg?branch=master)](https://travis-ci.org/Alex0Blackwell/focused-bird-watcher-game)  
 
 ![](css/imgs/brownBird.gif "Pumped!") ![](css/imgs/whiteBird.gif "Woo Bird Game!") ![](css/imgs/blueBird.gif "Take Some Bird Pics!") ![](css/imgs/yellowBird.gif "Bet you can't unlock me!") ![](css/imgs/darkBlueBird.gif "I won't stop dancing!") ![](css/imgs/greenBird.gif "Look at my knees!")
 
@@ -16,7 +17,7 @@ You start with common birds and based on how blurry your photo's are, as well as
 
 ## Examples
 
-    > Screenshot of the starter world
+> Screenshot of the starter world
 
 ![A Screenshot](https://alex0blackwell.github.io/img/portfolio/birdWatch.png "Screenshot")
 
