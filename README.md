@@ -19,7 +19,7 @@ You start with common birds and based on how blurry your photo's are, as well as
 
 > Screenshot of the starter world
 
-![A Screenshot](https://alex0blackwell.github.io/img/portfolio/birdWatch.png "Screenshot")
+![A Screenshot](https://alex0blackwell.github.io/img/portfolio/bird-watcher.gif "Screenshot")
 
 ## Technologies
 - HTML / CSS
